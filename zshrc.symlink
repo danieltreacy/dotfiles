@@ -1,1 +1,16 @@
-/Users/daniel/.zshrc
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# go find config in dotfiles
+export ZSH=$HOME/.dotfiles
+
+# include .zsh files in .dotfiles
+for config_file ($ZSH/**/*.zsh) source $config_file
+
+# include executables in ~/bin
+PATH=$PATH:~/bin/
+
+# init autocomplete
+autoload -U compinit
+compinit
+
