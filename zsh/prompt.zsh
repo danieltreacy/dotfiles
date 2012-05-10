@@ -28,7 +28,7 @@ git_pair() {
 
 git_prompt_info () {
  ref=$(git symbolic-ref HEAD 2>/dev/null) || return
- echo "%{\e[0;35m%}${ref#refs/heads/}%{\e[0m%}"
+ echo "(%{\e[0;35m%}${ref#refs/heads/}%{\e[0m%})"
 }
 
 project_name () {
@@ -54,11 +54,10 @@ need_push () {
   fi
 }
 
-git_info=$(git_prompt_info)$(git_dirty)$(need_push)
-export PROMPT=$'%{$fg[red]%}$(ruby_version) ${git_info} %{\e[0;36m%}%1/%{\e[0m%}/ '
-# set_prompt () {
-  # export RPROMPT="$(git_prompt_info)$(git_dirty)$(need_push)"
-# }
+export PROMPT=$'%{$fg[red]%}$(ruby_version) %{\e[0;36m%}%1/%{\e[0m%}/ '
+set_prompt () {
+  export RPROMPT="$(git_prompt_info)$(git_dirty)$(need_push)"
+}
 
 set_iterm_title() {
   echo -ne "\e]2;$(pwd)\a" 
