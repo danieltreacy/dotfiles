@@ -23,3 +23,6 @@ autoload -U compinit
 compinit
 
 export CLOJURESCRIPT_HOME=~/bin/clojurescript
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

@@ -1,3 +1,6 @@
+#load colors
+autoload colors && colors
+
 ruby_version() {
   v=$(ruby -v | awk '{ printf("%.5s", $2) }')
   echo -ne "$v"
@@ -54,7 +57,8 @@ need_push () {
   fi
 }
 
-export PROMPT=$'%{$fg[red]%}$(ruby_version) %{\e[0;36m%}%1/%{\e[0m%}/ '
+export PROMPT=$'%{\e[0;31m%}$(ruby_version)%{\e[0m%} %{\e[1;33m%}%n%{\e[0m%}@%{\e[1;30m%}%M%{\e[0m%}:%{\e[0;36m%}%1/%{\e[0m%}/ '
+
 set_prompt () {
   export RPROMPT="$(git_prompt_info)$(git_dirty)$(need_push)"
 }

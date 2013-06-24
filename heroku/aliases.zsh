@@ -15,4 +15,4 @@ heroku-app() {
   echo "Running heroku ${args[@]:$index}..."
   heroku ${args[@]:$index}
 }
-alias heroku=heroku-app
+# alias heroku=heroku-app
