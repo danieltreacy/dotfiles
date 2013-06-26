@@ -1,0 +1,6 @@
+
+startup_message off
+
+term screen-256color
+
+escape "^T^T"
