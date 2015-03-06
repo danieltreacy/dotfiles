@@ -1,2 +1,4 @@
 */**/.DS_Store
 .DS_Store
+/aws/vagrant-syd.pem
+/aws/vagrant.pem
