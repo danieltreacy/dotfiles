@@ -23,5 +23,8 @@ compinit
 
 export CLOJURESCRIPT_HOME=~/bin/clojurescript
 
+# load mutt config
+eval "$(cat ~/.mutt/load_gmail_credentials)"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

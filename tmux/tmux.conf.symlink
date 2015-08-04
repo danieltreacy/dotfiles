@@ -1,0 +1,18 @@
+set -g default-terminal "screen-256color"
+
+# Setting the prefix from C-b to C-t
+# START:prefix
+set -g prefix C-t
+# END:prefix
+# Free the original Ctrl-b prefix keybinding
+# START:unbind
+unbind C-b
+# END:unbind
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

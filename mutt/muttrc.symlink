@@ -1,0 +1,39 @@
+#unmy_hdr *       # delete existing header-settings, if there are any.
+#my_hdr X-Homepage: http://www.calmar.ws
+#my_hdr X-PGP-Key: http://www.calmar.ws/calmar.asc
+
+set from = "daniel.t.treacy@gmail.com"
+set realname = "Daniel Treacy"
+set signature = '~/.signature'
+set imap_user = $IMAP_USER
+set imap_pass = $IMAP_PASS
+
+# REMOTE GMAIL FOLDERS
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Gmail]/Drafts'
+
+# LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+set smtp_url = 'smtp://daniel.t.treacy@smtp.gmail.com:587/'
+set smtp_pass = $IMAP_PASS
+set smtp_authenticators = 'gssapi:login'
+
+# SECURING
+set move = no  #Stop asking to move read messages to mbox!
+set imap_keepalive = 900
+
+# SOME KEYBINDINGS
+macro index gi '=INBOX' 'Go to inbox'
+macro index ga '=[Gmail]/All Mail' 'Go to all mail'
+macro index gs '=[Gmail]/Sent Mail' 'Go to Sent Mail'
+macro index gd '=[Gmail]/Drafts' 'Go to drafts'
+macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
+
+# GENERAL SETTINGS
+set sort = reverse-date-received
+set mail_check=90
+set timeout=15
