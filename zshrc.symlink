@@ -1,7 +1,7 @@
-
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+export JIRA_HOME="$HOME/jira/"
 
 PATH=$PATH:$HOME/play-2.0.4
 
@@ -27,6 +27,9 @@ export CLOJURESCRIPT_HOME=~/bin/clojurescript
 
 # load mutt config
 eval "$(cat ~/.mutt/load_gmail_credentials)"
+
+# scala
+export PATH="$HOME/bin/scala-2.11.8/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

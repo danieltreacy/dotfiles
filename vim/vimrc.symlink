@@ -1,0 +1,92 @@
+set nocompatible
+filetype off
+let macvim_skip_colorscheme=1
+
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'rking/ag.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Raimondi/delimitMate'
+
+call vundle#end()            
+filetype plugin indent on    
+
+syntax enable " enable syntax processing
+
+" configure tabs
+set tabstop=2
+set softtabstop=2
+set expandtab " tabs are spaces
+
+" ui config
+set number
+set cursorline
+filetype indent on
+set wildmenu " visual autocomplete for command menu
+set showmatch
+
+" search
+set incsearch
+set hlsearch
+nnoremap <leader><space> :nohlsearch<CR>
+
+" folding
+set foldenable
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10
+
+" keys
+" leader shortcuts
+let mapleader=","
+inoremap jk <esc>
+" toggle gundo (graphical undo)
+nnoremap <leader>u :GundoToggle<CR>
+ 
+
+" shortcuts to edit vimrc 
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+
+" vim sessions
+nnoremap <leader>s :mksession<CR>
+
+" open ag.vim
+nnoremap <leader>a :Ag
+
+" movement
+nnoremap j gj
+nnoremap k gk
+nnoremap B 0
+nnoremap E $
+
+" nerdtree
+map <C-\> :NERDTreeToggle<CR>
+
+" pane splitting
+nnoremap <leader>[ :vsplit<CR>
+nnoremap <leader>] :split<CR>
+nnoremap <leader>q :close<CR>
+
+" CtrlP settings
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" move backups to tmp dir
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
+colorscheme mythos
+

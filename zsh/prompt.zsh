@@ -57,26 +57,26 @@ need_push () {
   fi
 }
 
-export PROMPT=$'%{\e[0;31m%}$(ruby_version)%{\e[0m%} %{\e[1;37m%}%n%{\e[0m%}@%{\e[1;33m%}%M%{\e[0m%}:%{\e[0;36m%}%1/%{\e[0m%}/ '
+export PROMPT=$'$ %{\e[1;37m%}%n%{\e[0m%}@%{\e[1;33m%}%M%{\e[0m%}:%{\e[0;36m%}%1/%{\e[0m%}/ '
 
 set_prompt () {
-  export RPROMPT="$(git_prompt_info)$(git_dirty)$(need_push)"
+  # export RPROMPT="$(git_prompt_info)$(git_dirty)$(need_push)"
 }
 
 set_iterm_title() {
-  echo -ne "\e]2;$(pwd)\a" 
+  echo -ne "\e]2;$(pwd)\a"
 }
 
 set_iterm_tab() {
   if [ $TABNAME ]
   then
-    echo -ne "\e]1;$TABNAME\a" 
+    echo -ne "\e]1;$TABNAME\a"
   else
-    echo -ne "\e]1;$(project_name)\a" 
+    echo -ne "\e]1;$(project_name)\a"
   fi
 }
 
 precmd() {
   print -Pn "\e]0;%~\a"
-  set_prompt
+  # set_prompt
 }
