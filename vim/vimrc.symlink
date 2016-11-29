@@ -1,7 +1,11 @@
 set nocompatible
+
+" hide scrollbars in macvim
+set guioptions-=r
+set guioptions-=L
+
 filetype off
 let macvim_skip_colorscheme=1
-
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -14,6 +18,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rakr/vim-two-firewatch'
 
 call vundle#end()            
 filetype plugin indent on    
@@ -68,6 +74,11 @@ nnoremap E $
 " nerdtree
 map <C-\> :NERDTreeToggle<CR>
 
+" buffer shortcuts
+nnoremap <leader>l :buffers<CR>:buffer<Space>
+map gn :bn<CR>
+map gp :bp<CR>
+
 " pane splitting
 nnoremap <leader>[ :vsplit<CR>
 nnoremap <leader>] :split<CR>
@@ -88,5 +99,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-colorscheme mythos
-
+set background=dark " or light 
+let g:two_firewatch_italics=1
+colo two-firewatch
+let g:airline_theme='twofirewatch'
