@@ -20,21 +20,30 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rakr/vim-two-firewatch'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'gavocanov/vim-js-indent'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()            
-filetype plugin indent on    
 
 syntax enable " enable syntax processing
+
+filetype plugin on
 
 " configure tabs
 set tabstop=2
 set softtabstop=2
 set expandtab " tabs are spaces
+set shiftwidth=2
+set smarttab
 
 " ui config
 set number
 set cursorline
-filetype indent on
 set wildmenu " visual autocomplete for command menu
 set showmatch
 
@@ -42,6 +51,7 @@ set showmatch
 set incsearch
 set hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
+nmap c :noh<CR>
 
 " folding
 set foldenable
@@ -55,7 +65,8 @@ inoremap jk <esc>
 " toggle gundo (graphical undo)
 nnoremap <leader>u :GundoToggle<CR>
  
-
+" git-fugitive shortcuts
+nnoremap <F8> :Gstatus<CR>
 " shortcuts to edit vimrc 
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 
@@ -70,14 +81,21 @@ nnoremap j gj
 nnoremap k gk
 nnoremap B 0
 nnoremap E $
+nnoremap <Enter> o<Esc>
+nnoremap <S-Enter> O<Esc>
 
 " nerdtree
+set autochdir
+let NERDTreeChDirMode=2
+nnoremap <leader>n :NERDTree .<CR>
+map <leader>f :NERDTreeFind<CR>
 map <C-\> :NERDTreeToggle<CR>
 
 " buffer shortcuts
 nnoremap <leader>l :buffers<CR>:buffer<Space>
 map gn :bn<CR>
 map gp :bp<CR>
+map <leader>d :bd<CR>
 
 " pane splitting
 nnoremap <leader>[ :vsplit<CR>
@@ -86,11 +104,12 @@ nnoremap <leader>q :close<CR>
 
 " CtrlP settings
 let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " move backups to tmp dir
 set backup
