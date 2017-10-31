@@ -1,8 +1,12 @@
 set nocompatible
 
+" use zsh as vim shell
+" set shell=zsh\ -i
+
 " hide scrollbars in macvim
 set guioptions-=r
 set guioptions-=L
+set guifont=Source\ Code\ Pro:h12
 
 filetype off
 let macvim_skip_colorscheme=1
@@ -26,11 +30,14 @@ Plugin 'gavocanov/vim-js-indent'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'wavded/vim-stylus'
 Plugin 'sjl/gundo.vim'
+Plugin 'dkprice/vim-easygrep'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()            
 
-syntax enable " enable syntax processing
+syntax enable 
 
 filetype plugin on
 
@@ -46,6 +53,8 @@ set number
 set cursorline
 set wildmenu " visual autocomplete for command menu
 set showmatch
+set autoindent
+set smartindent
 
 " search
 set incsearch
@@ -87,9 +96,13 @@ nnoremap <S-Enter> O<Esc>
 " nerdtree
 set autochdir
 let NERDTreeChDirMode=2
+let NERDTreeShowHidden=1
 nnoremap <leader>n :NERDTree .<CR>
 map <leader>f :NERDTreeFind<CR>
 map <C-\> :NERDTreeToggle<CR>
+
+" editor config
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " buffer shortcuts
 nnoremap <leader>l :buffers<CR>:buffer<Space>
@@ -122,3 +135,6 @@ set background=dark " or light
 let g:two_firewatch_italics=1
 colo two-firewatch
 let g:airline_theme='twofirewatch'
+let g:airline#extensions#syntastic#enabled = 1
+set laststatus=2 " always show status bar
+

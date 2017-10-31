@@ -57,7 +57,8 @@ need_push () {
   fi
 }
 
-export PROMPT=$'$ %{\e[1;37m%}%n%{\e[0m%}@%{\e[1;33m%}%M%{\e[0m%}:%{\e[0;36m%}%1/%{\e[0m%}/ '
+#export PROMPT=$'$ %{\e[1;37m%}%n%{\e[0m%}@%{\e[1;33m%}%M%{\e[0m%}:%{\e[0;36m%}%1/%{\e[0m%}/ '
+export PROMPT='[%n@%m:%/]%# '
 
 set_prompt () {
   # export RPROMPT="$(git_prompt_info)$(git_dirty)$(need_push)"

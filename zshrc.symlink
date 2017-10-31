@@ -6,8 +6,8 @@ export JIRA_HOME="$HOME/jira/"
 PATH=$PATH:$HOME/play-2.0.4
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
 # go find config in dotfiles
@@ -26,10 +26,20 @@ compinit
 export CLOJURESCRIPT_HOME=~/bin/clojurescript
 
 # load mutt config
-eval "$(cat ~/.mutt/load_gmail_credentials)"
+#eval "$(cat ~/.mutt/load_gmail_credentials)"
 
 # scala
-export PATH="$HOME/bin/scala-2.11.8/bin:$PATH"
+export PATH="$HOME/bin/scala-2.12.2/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export KYNDI_HOME="$HOME/code/kyndi"
+export WORKBENCH_HOME="$HOME/code/workbench"
+
+# load zsh config files containing private things
+# I dont want checked into source control
+for private_config_file ($HOME/bin/*.private.zsh) source $private_config_file
+
+# OPAM configuration
+. /Users/dtreacy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
