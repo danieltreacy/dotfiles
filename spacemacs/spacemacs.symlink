@@ -356,6 +356,10 @@ you should place your code here."
   (define-key evil-insert-state-map (kbd "C-d") 'evil-delete-char)
   (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line) ;; was 'evil-paste-last-insertion
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)    ;; was 'evil-copy-from-below
+
+  (require 'exec-path-from-shell)
+  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
