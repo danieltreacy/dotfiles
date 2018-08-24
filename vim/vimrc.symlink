@@ -24,6 +24,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rakr/vim-two-firewatch'
+Plugin 'liuchengxu/space-vim-dark'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'gavocanov/vim-js-indent'
@@ -36,6 +37,8 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()            
+
+set incsearch
 
 syntax enable 
 
@@ -133,7 +136,7 @@ set writebackup
 
 set background=dark " or light 
 let g:two_firewatch_italics=1
-colo two-firewatch
+colo space-vim-dark
 let g:airline_theme='twofirewatch'
 let g:airline#extensions#syntastic#enabled = 1
 set laststatus=2 " always show status bar
